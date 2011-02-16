@@ -54,11 +54,15 @@ namespace WowHeadParser
                 ConstructorInfo cInfo = m_parser.GetConstructor(new Type[] { typeof(uint)    });
                 PageParser parser = (PageParser)cInfo.Invoke(new object[]  { GetSubparsers() });
 
-                downloader = new Downloader(parser, m_queue, cbLocale.Text, (int)numericUpDownThreads.Value);
-                downloader.OnProgressChanged += new DownloaderProgressHandler(downloader_OnProgressChanged);
+                this.downloader = new Downloader(parser, m_queue);
+                this.downloader.OnProgressChanged += new DownloaderProgressHandler(downloader_OnProgressChanged);
 
-                m_thread = new Thread(downloader.StartAsunc);
-                m_thread.Start();
+                this.downloader.Locale     = cbLocale.Text.Trim();
+                this.downloader.Delay      = (int)nudDelay.Value;
+                this.downloader.MaxThreads = (int)nudThreads.Value;
+
+                this.m_thread = new Thread(this.downloader.StartAsunc);
+                this.m_thread.Start();
             }
             catch (Exception ex)
             {

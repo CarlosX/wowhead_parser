@@ -49,7 +49,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="KVP.cs" />
     <Compile Include="Parsers\PageParser.cs" />
-    <Compile Include="Parsers\PageTextParser.cs" />
+    <Compile Include="Parsers\Object\ObjectParser.cs" />
     <Compile Include="Parsers\ParserNameAttribute.cs" />
     <Compile Include="Downloader.cs" />
     <Compile Include="EventProgress.cs" />
@@ -59,7 +59,7 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parsers\QuestParser.cs" />
+    <Compile Include="Parsers\Quest\QuestParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestState.cs" />
@@ -86,7 +86,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Parsers\Npc\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

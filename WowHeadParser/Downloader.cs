@@ -10,21 +10,21 @@ namespace WowHeadParser
 
     public class Downloader : IDisposable
     {
-        private int maxThreads;
         private List<Thread> m_thread;
-        private string m_locale;
         private PageParser m_parser;
         private Queue<KVP> m_queue;
         private List<RequestState> m_list;
 
         public event DownloaderProgressHandler OnProgressChanged;
 
-        public Downloader(PageParser parser, Queue<KVP> queue, string locale, int thCount)
+        public string Locale  { get; set; }
+        public int Delay      { get; set; }
+        public int MaxThreads { get; set; }
+
+        public Downloader(PageParser parser, Queue<KVP> queue)
         {
             this.m_parser   = parser;
-            this.m_locale   = locale;
             this.m_queue    = queue;
-            this.maxThreads = thCount;
             this.m_list     = new List<RequestState>();
             this.m_thread   = new List<Thread>();
         }
@@ -37,13 +37,15 @@ namespace WowHeadParser
             Console.WriteLine("Started parse in {0}", m_parser.Url);
 
             int total = this.m_queue.Count;
-            int index = 0;
+            int current = 0;
             while (this.m_queue.Count > 0)
             {
-                if (this.m_list.Count < this.maxThreads)
+                if (this.m_list.Count < this.MaxThreads)
                 {
-                    KVP entry = this.m_queue.Dequeue();
-                    string url = this.m_parser.Url + entry.Key;
+                    KVP entry     = this.m_queue.Dequeue();
+
+                    string prefix = string.IsNullOrWhiteSpace(this.Locale) ? "www." : this.Locale;
+                    string url    = prefix + this.m_parser.Url + entry.Key;
 
                     RequestState state = new RequestState(url, entry);
                     state.OnDispose += new EventHandler(state_OnDispose);
@@ -51,10 +53,9 @@ namespace WowHeadParser
                     this.m_list.Add(state);
 
                     state.Request.BeginGetResponse(new AsyncCallback(RespCallback), state);
-                    OnProgressChanged(this, new EventProgress(total, index, m_list.Count, url));
-                    ++index;
+                    OnProgressChanged(this, new EventProgress(total, ++current, m_list.Count, url));
                 }
-                Thread.Sleep(700);
+                Thread.Sleep(Delay);
             }
 
             OnProgressChanged(this, new EventProgress(ProgressState.Complete));

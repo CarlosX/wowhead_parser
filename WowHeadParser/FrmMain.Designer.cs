@@ -36,20 +36,20 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.labelProgress = new System.Windows.Forms.Label();
             this.clbSubParsers = new System.Windows.Forms.CheckedListBox();
-            this.numericUpDownThreads = new System.Windows.Forms.NumericUpDown();
+            this.nudThreads = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbLocale = new System.Windows.Forms.ComboBox();
             this.tbListEntrys = new System.Windows.Forms.TextBox();
             this.bShowOpenFileDialog = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudDelay = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownThreads)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudThreads)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDelay)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -136,24 +136,24 @@
             this.clbSubParsers.Size = new System.Drawing.Size(198, 81);
             this.clbSubParsers.TabIndex = 9;
             // 
-            // numericUpDownThreads
+            // nudThreads
             // 
-            this.numericUpDownThreads.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.numericUpDownThreads.Location = new System.Drawing.Point(86, 73);
-            this.numericUpDownThreads.Maximum = new decimal(new int[] {
+            this.nudThreads.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.nudThreads.Location = new System.Drawing.Point(86, 73);
+            this.nudThreads.Maximum = new decimal(new int[] {
             20,
             0,
             0,
             0});
-            this.numericUpDownThreads.Minimum = new decimal(new int[] {
+            this.nudThreads.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDownThreads.Name = "numericUpDownThreads";
-            this.numericUpDownThreads.Size = new System.Drawing.Size(53, 20);
-            this.numericUpDownThreads.TabIndex = 10;
-            this.numericUpDownThreads.Value = new decimal(new int[] {
+            this.nudThreads.Name = "nudThreads";
+            this.nudThreads.Size = new System.Drawing.Size(53, 20);
+            this.nudThreads.TabIndex = 10;
+            this.nudThreads.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -166,9 +166,9 @@
             this.groupBox2.Controls.Add(this.bShowOpenFileDialog);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.numericUpDown1);
+            this.groupBox2.Controls.Add(this.nudDelay);
             this.groupBox2.Controls.Add(this.cbParser);
-            this.groupBox2.Controls.Add(this.numericUpDownThreads);
+            this.groupBox2.Controls.Add(this.nudThreads);
             this.groupBox2.Location = new System.Drawing.Point(4, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(276, 100);
@@ -182,9 +182,9 @@
             this.cbLocale.FormattingEnabled = true;
             this.cbLocale.Items.AddRange(new object[] {
             "",
-            "ru",
-            "de",
-            "fr"});
+            "ru.",
+            "de.",
+            "fr."});
             this.cbLocale.Location = new System.Drawing.Point(8, 19);
             this.cbLocale.Name = "cbLocale";
             this.cbLocale.Size = new System.Drawing.Size(38, 21);
@@ -227,24 +227,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sub Parsers";
             // 
-            // numericUpDown1
+            // nudDelay
             // 
-            this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.numericUpDown1.Location = new System.Drawing.Point(215, 73);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nudDelay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.nudDelay.Location = new System.Drawing.Point(215, 73);
+            this.nudDelay.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.nudDelay.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(54, 20);
-            this.numericUpDown1.TabIndex = 10;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.nudDelay.Name = "nudDelay";
+            this.nudDelay.Size = new System.Drawing.Size(54, 20);
+            this.nudDelay.TabIndex = 10;
+            this.nudDelay.Value = new decimal(new int[] {
             500,
             0,
             0,
@@ -279,11 +279,11 @@
             this.Text = "WowHead Parser";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownThreads)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudThreads)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDelay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,7 +299,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label labelProgress;
         private System.Windows.Forms.CheckedListBox clbSubParsers;
-        private System.Windows.Forms.NumericUpDown numericUpDownThreads;
+        private System.Windows.Forms.NumericUpDown nudThreads;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -307,7 +307,7 @@
         private System.Windows.Forms.Button bShowOpenFileDialog;
         private System.Windows.Forms.ComboBox cbLocale;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudDelay;
     }
 }
 

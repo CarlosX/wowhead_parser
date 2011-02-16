@@ -20,12 +20,12 @@ namespace WowHeadParser
             if (Response == null)
                 throw new ArgumentNullException("Reasponse");
 
-            return new StreamReader(this.Response.GetResponseStream()).ReadToEnd(); 
+            return new StreamReader(this.Response.GetResponseStream()).ReadToEnd();
         }
 
         public RequestState(string url, KVP entry)
         {
-            this.Request = (HttpWebRequest)WebRequest.Create(url);
+            this.Request = (HttpWebRequest)WebRequest.Create("http://" + url);
             this.Request.UserAgent = @"Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.6 (KHTML, like Gecko) Chrome/7.0.503.0 Safari/534.6";
             this.Request.Method    = "POST";
             this.Entry             = entry;

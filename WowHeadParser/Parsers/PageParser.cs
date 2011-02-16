@@ -69,11 +69,7 @@ namespace WowHeadParser.Parsers
 
         public abstract void Parse(KVP entry);
 
-        public string Url 
-        {
-            get { return m_url; }
-            set { this.m_url = "http://www." + value; }
-        }
+        public string Url { get; set; }
 
         public uint Flag { get; private set; }
 
