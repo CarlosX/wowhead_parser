@@ -158,6 +158,7 @@
             0,
             0,
             0});
+            this.nudThreads.ValueChanged += new System.EventHandler(this.nudThreads_ValueChanged);
             // 
             // groupBox2
             // 
@@ -249,6 +250,7 @@
             0,
             0,
             0});
+            this.nudDelay.ValueChanged += new System.EventHandler(this.nudDelay_ValueChanged);
             // 
             // label2
             // 

@@ -183,5 +183,17 @@ namespace WowHeadParser
         {
             bStop_Click(null, null);
         }
+
+        private void nudThreads_ValueChanged(object sender, EventArgs e)
+        {
+            if (this.downloader != null)
+                this.downloader.MaxThreads = (int)nudThreads.Value;
+        }
+
+        private void nudDelay_ValueChanged(object sender, EventArgs e)
+        {
+            if (this.downloader != null)
+                this.downloader.Delay = (int)nudDelay.Value;
+        }
     }
 }
